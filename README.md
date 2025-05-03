@@ -9,5 +9,5 @@
 ## Generate the GIF
 * isolate the desired frames of the animation into a seperate directory
 * set that directory as the target path
-* set the bounds to crop the GIF as needed
+* leave has_bounds as False for automatic cropping
 * running the script will place the generated GIF in the parent directory
