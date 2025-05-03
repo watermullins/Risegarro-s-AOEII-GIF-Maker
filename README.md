@@ -1,6 +1,6 @@
 # Risegarro's AOEII GIF Maker
 
-## Extract PNGs for SLDs
+## Extract PNGs from SLDs
 * locate target SLD file in c:\SteamLibrary\steamapps\common\AoE2DE\resources\_common\drs\graphics
 * drag into Greg Stein's SLD Extractor https://ageofnotes.com/sld-extractor-online-aoe2/
 * download extacted files
