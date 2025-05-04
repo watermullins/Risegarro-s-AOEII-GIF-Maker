@@ -2,22 +2,24 @@
 from pathlib import Path
 from PIL import Image
 
-p = Path(r"/path/to/your/unit/png/directory") 
+p = Path(r"/path/to/your/unit/png/directory")
 
+anim_length = 60 # change to match animation duration
 
-minx, miny, maxx, maxy = (20, 20, 250, 170)  # left, top, right, bottom, has to be set manually and will be used if has_bounds is True
-has_bounds = False  # It will auto-detect and crop if this is False, set it to True to use above values
-if not has_bounds:
+png_files = sorted(p.glob("*.png"))
+
+for chunk_index in range(0, len(png_files), anim_length):
+    chunk_files = png_files[chunk_index:chunk_index + anim_length]
+    if not chunk_files:
+        break
+
+    images = []
     minx = miny = maxx = maxy = None
 
-
-images = []
-for file in p.glob("*.png"):
-    csv = file.with_suffix(".csv").with_stem(file.stem + ".png")
-    with Image.open(file).convert("RGBA") as img:
-        images.append(img)
-        pixels = img.load()
-        if not has_bounds:
+    for file in chunk_files:
+        with Image.open(file).convert("RGBA") as img:
+            images.append(img)
+            pixels = img.load()
             for y in range(img.size[1]):
                 for x in range(img.size[0]):
                     if pixels[x, y][3] != 0:
@@ -34,9 +36,17 @@ for file in p.glob("*.png"):
                         maxx = max(maxx, x + 1)
                         maxy = max(maxy, y + 1)
 
-            
-for i, img in enumerate(images):
-    images[i] = img.crop((minx, miny, maxx, maxy))
+    cropped_images = [img.crop((minx, miny, maxx, maxy)) for img in images]
+    output_path = p.parent / f"{p.name}_{chunk_index // anim_length}.gif"
+    cropped_images[0].save(
+        output_path,
+        "GIF",
+        save_all=True,
+        append_images=cropped_images[1:],
+        duration=20,
+        loop=0,
+        disposal=2,
+        transparency=0,
+    )
 
-
-images[0].save(p.parent / f"{p.name}.gif", "GIF", save_all=True, append_images = images[1:], duration=20, loop=0, disposal=2, transparency=0)
+print("GIF generation complete.")
