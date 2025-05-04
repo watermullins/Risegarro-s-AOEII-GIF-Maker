@@ -4,9 +4,12 @@ from PIL import Image
 
 p = Path(r"/path/to/your/unit/png/directory")
 
-anim_length = 60 # change to match animation duration
+
 
 png_files = sorted(p.glob("*.png"))
+anim_length = (len(png_files) - 1) // 16
+total_valid_frames = anim_length * 16
+png_files = png_files[:total_valid_frames] 
 
 for chunk_index in range(0, len(png_files), anim_length):
     chunk_files = png_files[chunk_index:chunk_index + anim_length]
@@ -50,3 +53,7 @@ for chunk_index in range(0, len(png_files), anim_length):
     )
 
 print("GIF generation complete.")
+
+# urumi attack = 45
+# mango attack = 60
+# idle camel = 60
