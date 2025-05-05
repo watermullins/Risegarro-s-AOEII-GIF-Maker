@@ -6,8 +6,6 @@
 * download extacted files
 * unzip folder
 
-## Generate the GIF
-* isolate the desired frames of the animation into a seperate directory
-* set that directory as the target path
-* leave has_bounds as False for automatic cropping
-* running the script will place the generated GIF in the parent directory
+## Generate the GIFs
+* set the unzipped directory as the target path
+* running the script will place the 16 generated GIFs in the parent directory
