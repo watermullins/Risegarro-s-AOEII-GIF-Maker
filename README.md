@@ -1,5 +1,9 @@
 # Risegarro's AOEII GIF Maker
 
+## Setup
+* install python
+* download unitgifmaker.py
+
 ## Extract PNGs from SLDs
 * locate target SLD file in c:\SteamLibrary\steamapps\common\AoE2DE\resources\_common\drs\graphics
 * drag into WAIFor's SLD Extractor hosted by Greg Stein https://ageofnotes.com/sld-extractor-online-aoe2/
