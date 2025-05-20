@@ -2,11 +2,10 @@
 from pathlib import Path
 from PIL import Image
 
-p = Path(r"/path/to/your/unit/png/directory")
+p = Path(__file__).resolve()
+frames_dir = p.parent / "frames"
 
-
-
-png_files = sorted(p.glob("*.png"))
+png_files = sorted(frames_dir.glob("*.png"))
 anim_length = (len(png_files) - 1) // 16
 total_valid_frames = anim_length * 16
 png_files = png_files[:total_valid_frames] 
@@ -53,7 +52,3 @@ for chunk_index in range(0, len(png_files), anim_length):
     )
 
 print("GIF generation complete.")
-
-# urumi attack = 45
-# mango attack = 60
-# idle camel = 60
