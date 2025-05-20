@@ -45,7 +45,3 @@ for chunk_index in range(0, len(png_files), anim_length):
     )
 
 print("GIF generation complete.")
-
-# urumi attack = 45
-# mango attack = 60
-# idle camel = 60
