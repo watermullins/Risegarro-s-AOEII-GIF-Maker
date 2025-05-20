@@ -11,5 +11,13 @@
 * unzip folder
 
 ## Generate the GIFs
-* set the unzipped directory as the target path
+* place the PNGs in a folder called frames in the script's directory (see directory map below)
 * running the script will place the 16 generated GIFs in the parent directory
+
+ gif/
+  ├── unitgifmaker.py
+  ├── frames/
+  │   ├── frame01.png
+  │   ├── frame02.png
+  │   ├── ...
+  └── unitgifmaker_0.gif
