@@ -2,12 +2,10 @@
 from pathlib import Path
 from PIL import Image
 
-# replace with path to the extracted PNGs
-p = Path(r"../images/")
+p = Path(__file__).resolve()
+frames_dir = p.parent / "frames"
 
-
-
-png_files = sorted(p.glob("*.png"))
+png_files = sorted(frames_dir.glob("*.png"))
 anim_length = (len(png_files) - 1) // 16
 total_valid_frames = anim_length * 16
 png_files = png_files[:total_valid_frames] 
