@@ -11,7 +11,7 @@
 * unzip folder
 
 ## Generate the GIFs
-* place the PNGs in a folder called frames in the script's directory (see directory map below)
+* place the extracted PNGs in a folder called frames in the script's directory (see directory map below)
 * running the script will place the 16 generated GIFs in the parent directory
 
 ### Directory Structure
