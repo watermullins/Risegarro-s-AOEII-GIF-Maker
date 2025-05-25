@@ -23,3 +23,7 @@ gif/
 │   ├── frame02.png
 │   └── ...
 └── unitgifmaker_0.gif
+```
+
+#### Credit
+This project was started from a script by Risegarro, one of the aoe wiki admins.
