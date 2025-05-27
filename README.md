@@ -12,6 +12,7 @@
 * unzip folder
 
 ## Generate the GIFs
+* the extracted files will be a mix of PNGs and CSVs. Don't worry about the CSVs. They can either be discarded or ignored and copied over with the PNGs, they won't affect anything
 * place the extracted PNGs in a folder called frames in the script's directory (see directory map below)
 * running the script will place the 16 generated GIFs in the parent directory
 
